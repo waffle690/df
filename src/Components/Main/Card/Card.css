@@ -1,0 +1,12 @@
+.mainCard{
+    max-width: 1080px;
+    margin: 0 auto 0 auto;
+    background-color: white;
+}
+.btnserd{
+    padding: 10px;
+    z-index: 3;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+}
