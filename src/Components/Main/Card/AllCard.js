@@ -6,7 +6,7 @@ function AllCards() {
     return (
         <div className="MainContent">
         <Stack direction="horizontal" gap={3}>
-            <h1>Все кoвры</h1>
+            <h1>Все кoры</h1>
             <input className="ms-auto" />
         </Stack>
 
@@ -15,7 +15,6 @@ function AllCards() {
       <Card />
       <Card />
       <Card />
-
       </div>
 </div>
     );

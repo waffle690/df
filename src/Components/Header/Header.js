@@ -16,7 +16,7 @@ function Header() {
 
       <div className='rightHeader ms-auto'>
       <img src="/img/Group.png" width={20} height={20}/>
-      <span>0 р.</span>
+      <span>140.000 рублей</span>
       <img src="/img/Union.svg" width={20} height={20}/>
       <img src="/img/Favorite.svg" width={20} height={20}/>
       </div>
