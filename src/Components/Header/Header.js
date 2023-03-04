@@ -1,7 +1,7 @@
 import Stack from 'react-bootstrap/Stack';
 import './Header.css'
 
-function Header() {
+function Header(props) {
 
     return <div className='mainHeader'>
 
@@ -15,7 +15,7 @@ function Header() {
       </div>
 
       <div className='rightHeader ms-auto'>
-      <img src="/img/Group.png" width={20} height={20}/>
+      <img src="/img/Group.png" width={20} height={20} onClick={() => props.onOpenCart()}/>
       <span>140.000 рублей</span>
       <img src="/img/Union.svg" width={20} height={20}/>
       <img src="/img/Favorite.svg" width={20} height={20}/>
