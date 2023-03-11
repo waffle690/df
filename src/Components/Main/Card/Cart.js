@@ -1,12 +1,21 @@
 import './Cart.css'
 import { useState } from 'react';
 import { Stack } from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
+import BasketCard from './BasketCard.js';
 function Cart(props) {
 
-
-    let [colr, setColr] = useState(1);
     const [basket, setBasket] = useState(false);
+ 
+    let carpets = [
+        {id: 1, name: "Кргулый ковёр напольный “Кругляш” " , cost: "1.500 рублей" , img: "img/imgCard1.png"},
+        {id: 2, name: "Летающий ковер “Магич", cost: "142.000 рублей" , img: "img/imgCard4.png"},
+        {id: 3, name: "Ковер 2 в 1 “Эксклюзивыч” " , cost: "70.000 рублей" , img: "img/imgCard3.png"},
+        {id: 4, name: "Летающий ковер “Магич", cost: "142.000 рублей" , img: "img/imgCard4.png"},
+    ]
+    
+    let cards = carpets.map(carpet => {
+        return <BasketCard name = {carpet.name} cost={carpet.cost} img={carpet.img}/>
+    })
 
     let styleOverflow = {}
     let styleSideBlock = {}
@@ -19,20 +28,9 @@ function Cart(props) {
         styleOverflow = { width: '0' };
         styleSideBlock = { width: '0' };
     }
-    let content = basket ?<>< img src='./img/ButtonBuy2.png' style={{ width: '320px', height: '320px'}} /></> :  <div className='CartItems'>
-    <Card style={{ width: '325px', height: '140px' }}>  
-    <Card.Text className='CartSail' style={{fontSize: 14}}>
-        <img src="/img/imgCard1.png" style={{ width: '89px', height: '89px'}}/>
-        <div className='CartText'>
-        <h5>Кргулый ковёр напольный “Кругляш”</h5>
-        <div><p><b>  1.500 рублей</b></p>  </div>
-        <div className='CartButon'>
-        <img src="./img/ButtonMinus.png" onClick={() => setColr(colr-1)} style={{ width: '32px', height: '32px'}} alt="-"/> <input  id="CartInput"maxLength={2} style={{ width: '32px', height: '32px' }} value={colr} onChange={event => setColr(event.target.colr)}/><img src="./img/ButtonPlus.png" onClick={() => setColr(colr+1)} style={{ width: '32px', height: '32px'}} alt="+"/>
-        </div>
-        </div>
-    </Card.Text>
-    
-</Card> 
+    let content = basket ?<>< img src='./img/ButtonBuy2.png' style={{ width: '320px', height: '320px'}} /></> :  
+<div className="BasketCards">
+{cards}
 </div>
     return <>
         <div className='Overflow' style={styleOverflow} onClick={() => props.onOpenCart(false)}></div>
@@ -41,7 +39,7 @@ function Cart(props) {
             <div className="element"><h3>Корзина</h3></div>
             <div className="element ms-auto" ><img src='img/CloseButton.svg' alt="CloseButton" onClick={() => props.onOpenCart(false)} /></div>
         </Stack> 
-       {content}
+        {content}
 <div className='MainEnd'>
 <p>Итого:ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ184.600 р</p>
 <p>Налог:30%ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ42.600 р</p>

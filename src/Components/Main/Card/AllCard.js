@@ -19,6 +19,7 @@ let cards = carpets.map(carpet => {
         <div className="MainContent">
         <Stack direction="horizontal" gap={3}>
             <h1>Все кoры</h1>
+            <span>Всего ковров: {carpets[3].id}</span>
             <input className="ms-auto" />
         </Stack>
 
