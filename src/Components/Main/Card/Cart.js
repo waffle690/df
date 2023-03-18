@@ -1,54 +1,25 @@
-import './Cart.css'
-import { useState } from 'react';
-import { Stack } from 'react-bootstrap';
-import BasketCard from './BasketCard.js';
-function Cart(props) {
+ import './Cart.css'
+ import { useState } from 'react'; 
+ function SideCart() { 
 
-    const [basket, setBasket] = useState(false);
- 
-    let carpets = [
-        {id: 1, name: "Кргулый ковёр напольный “Кругляш” " , cost: "1.500 рублей" , img: "img/imgCard1.png"},
-        {id: 2, name: "Летающий ковер “Магич", cost: "142.000 рублей" , img: "img/imgCard4.png"},
-        {id: 3, name: "Ковер 2 в 1 “Эксклюзивыч” " , cost: "70.000 рублей" , img: "img/imgCard3.png"},
-        {id: 4, name: "Летающий ковер “Магич", cost: "142.000 рублей" , img: "img/imgCard4.png"},
-    ]
-    
-    let cards = carpets.map(carpet => {
-        return <BasketCard name = {carpet.name} cost={carpet.cost} img={carpet.img}/>
-    })
+const [openCart, SetOpenCart] = useState(true)
 
-    let styleOverflow = {}
-    let styleSideBlock = {}
 
-    if (props.openCart === true) {
-        styleOverflow = { width: '100%' };
-        styleSideBlock = { width: '385px' };
-    }
-    else {
-        styleOverflow = { width: '0' };
-        styleSideBlock = { width: '0' };
-    }
-    let content = basket ?<>< img src='./img/ButtonBuy2.png' style={{ width: '320px', height: '320px'}} /></> :  
-<div className="BasketCards">
-{cards}
-</div>
-    return <>
-        <div className='Overflow' style={styleOverflow} onClick={() => props.onOpenCart(false)}></div>
-        <div className='SideBlock' style={styleSideBlock}>
-        <Stack direction="horizontal" gap={3} id='topCard'>
-            <div className="element"><h3>Корзина</h3></div>
-            <div className="element ms-auto" ><img src='img/CloseButton.svg' alt="CloseButton" onClick={() => props.onOpenCart(false)} /></div>
-        </Stack> 
-        {content}
-<div className='MainEnd'>
-<p>Итого:ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ184.600 р</p>
-<p>Налог:30%ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ42.600 р</p>
-<img src='./img/ButtonBuy.png' onClick={()=>setBasket(!basket)} id="Imagef" style={{ width: '320px', height: '55px'}} />
+let styleOverflow = {} 
+let styleSideBlock = {}
 
-</div>
-
-        </div> 
-        
-        </>
+if (openCart === true) {
+    styleOverflow = {width: '100%'};
+    styleSideBlock = {width: '385px'};
 }
-export default Cart;
+else{
+styleOverflow = {width: '0'};
+styleSideBlock = {width: '0'};
+}
+return <>
+<div className='Overflow' style={styleOverflow} onClick={() => SetOpenCart(false)}></div> 
+<div className='SideBlock' style={styleSideBlock}></div>
+
+</>
+ }
+export default SideCart;

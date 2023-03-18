@@ -1,9 +1,8 @@
 import Carousel from 'react-bootstrap/Carousel';
 import './Slider.css'
 function UncontrolledExample() {
-  return (
-    <div className='mainSlider'>
-    <Carousel >
+  return <div className="mainSlider">
+    <Carousel>
       <Carousel.Item>
         <img
           className="d-block w-100"
@@ -37,9 +36,7 @@ function UncontrolledExample() {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
-    </div>
-  );
+    </div>;
 }
-
 
 export default UncontrolledExample;

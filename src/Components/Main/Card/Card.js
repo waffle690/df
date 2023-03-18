@@ -3,25 +3,19 @@ import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
 import './Card.css'
 
-function Сard(props) {
-  let [colr, setColr] = useState(false);
+function Сard() {
+  let [colr, setColr] = useState(true);
   let [btnColr, setBtnColr] = useState(true);
-const [addToCart, setAddToCart] = useState(false)
-
-    function clickAddButton(newProd) {
-      setAddToCart(!addToCart);
-      addProdToCart(newProd);
-    }
   return <div className="mainCard">
-    <Card style={{ width: '210px', height: '25  0px' }}>
+    <Card style={{ width: '210px', height: '280px' }}>
     <div className="btnserd">{btnColr ? <Button variant="outline-secondary" onClick={() => setBtnColr(!btnColr)}>♡
-</Button> : <Button variant="danger" onClick={() => setBtnColr(!btnColr)}>♥</Button>}</div>
-      <Card.Img variant="top" src={props.img} style={{ width: '89px', height: '89px', margin: '10px auto 0px'}} />
+</Button> : <Button variant="success" onClick={() => setBtnColr(!btnColr)}>♥</Button>}</div>
+      <Card.Img variant="top" src="/img/imgCard1.png" style={{ width: '89px', height: '89px', margin: '10px auto 0px'}} />
       <Card.Body>
-        <Card.Title className='cardTitle'>{props.name}</Card.Title>
-        <Card.Text style={{fontSize: 14}} className="TextCard">
-          Цена:<br/><b>{props.cost}</b>
-          <div className='Bittons'>{colr ? <Button variant="outline-secondary" onClick={() => clickAddButton ({id: id, name: name, cost: cost, img: img})}>+</Button>   :    <Button variant="success" onClick={() => clickAddButton ({id: id, name: name, cost: cost, img: img})}>✓</Button>}</div>
+        <Card.Title className='cardTitle'>Кргулый ковёр напольный “Кругляш”</Card.Title>
+        <Card.Text style={{fontSize: 14}}>
+          Цена:<br/><b>1.500 рублей</b>
+          <div>{colr ? <Button variant="outline-secondary" onClick={() => setColr(!colr)}>+</Button> : <Button variant="success" onClick={() => setColr(!colr)}>✓</Button>}</div>
         </Card.Text>
 
       </Card.Body>

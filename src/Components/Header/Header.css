@@ -5,6 +5,7 @@
     border-radius: 20px 20px 0 0;
     border-bottom: 1px solid #EAEAEA;
     padding: 0 45px;
+    background-color: #F4EFE9;
 }
 
 .leftHeader {
@@ -14,8 +15,4 @@
 .leftHeader .leftHeaderText {
     display: flex;
     flex-direction: column;
-}
-
-.rightHeader img {
-    margin: 0 10px;
 }
