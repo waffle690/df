@@ -12,12 +12,16 @@ function App() {
 
 
 const [openCart, SetOpenCart] = useState(true);
+const [cart, setCart] = useState([]);
 
+    function addProdToCart(newProd) {
+        setCart(prev => [...prev, newProd]);
+    }
     return <div>
-      <Cart openCart={openCart} onOpenCart = {()=>SetOpenCart(false)}/>
+      <Cart openCart={openCart} onOpenCart = {()=>SetOpenCart(false)} cart={cart}/>
       <Header onOpenCart = {() => SetOpenCart(true)} />
       <Slider />
-      <AllCard />
+      <AllCard addProdToCart={(NEWPROD) => addProdToCart(NEWPROD)}/>/>
     </div>
   }
 
